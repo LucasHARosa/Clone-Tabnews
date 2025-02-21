@@ -11,34 +11,36 @@ Curso do Filipe Deschamps
 ## Instalação
 
 1. Instale a versão correta do Node.js:
-    ```sh
-    nvm install lts/hydrogen
-    nvm use lts/hydrogen
-    ```
+
+   ```sh
+   nvm install lts/hydrogen
+   nvm use lts/hydrogen
+   ```
 
 2. Defina a versão LTS Hydrogen como padrão:
-    ```sh
-    nvm alias default lts/hydrogen
-    ```
+
+   ```sh
+   nvm alias default lts/hydrogen
+   ```
 
 3. Instale as dependências do projeto:
-    ```sh
-    npm install
-    ```
+   ```sh
+   npm install
+   ```
 
 ## Desenvolvimento
 
 Para iniciar o servidor de desenvolvimento, execute:
+
 ```sh
 npm run dev
 ```
 
-
-<!-- 
+<!--
 Versão do node:
 nvm install lts/hydrogen
 nvm install
 
 Versão do node default:
-nvm alias default lts/hydrogen 
+nvm alias default lts/hydrogen
 -->
