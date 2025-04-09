@@ -44,3 +44,6 @@ nvm install
 Versão do node default:
 nvm alias default lts/hydrogen
 -->
+
+Rodando o docker compose:
+docker compose -f infra/compose.yaml up -d
