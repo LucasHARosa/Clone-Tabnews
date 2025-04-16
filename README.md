@@ -46,4 +46,13 @@ nvm alias default lts/hydrogen
 -->
 
 Rodando o docker compose:
+
+```sh
 docker compose -f infra/compose.yaml up -d
+```
+
+Rodando um teste em específico:
+
+```sh
+npm run test:watch -- migration.post
+```
