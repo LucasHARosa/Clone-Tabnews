@@ -1,10 +1,9 @@
 import { Client } from "pg";
 
 async function query(queryObject) {
-  
-let client;
+  let client;
   try {
-   client = await getNewClient();
+    client = await getNewClient();
     const res = await client.query(queryObject);
     return res;
   } catch (error) {
