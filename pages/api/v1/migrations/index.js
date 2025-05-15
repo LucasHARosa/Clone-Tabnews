@@ -17,9 +17,6 @@ export default async function migrations(req, res) {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
-  if (!process.env.DATABASE_URL) {
-    return res.status(500).json({ error: "DATABASE_URL not set" });
-  }
 
   if (req.method === "POST") {
     console.log("Running migrations...");
