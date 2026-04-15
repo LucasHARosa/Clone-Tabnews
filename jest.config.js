@@ -9,7 +9,9 @@ const createJestConfig = nextJest({
   dir: ".",
 });
 const jestConfig = createJestConfig({
-  moduleDirectories: ["node_modules", "<rootDir>"],
+  moduleNameMapper: {
+    "^@/(.*)$": "<rootDir>/$1",
+  },
   testTimeout: 6000,
 });
 
