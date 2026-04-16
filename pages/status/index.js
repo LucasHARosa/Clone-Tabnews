@@ -21,7 +21,10 @@ function UpdatedAt() {
   const { isLoading, data } = useSWR("/api/v1/status", fetchAPI, {
     refreshInterval: 2000,
   });
-  const date = new Date(data?.updated_at).toLocaleString("pt-BR");
+  let date = "carregando...";
+  if (data && !isLoading) {
+    date = new Date(data?.updated_at).toLocaleString("pt-BR");
+  }
   return <div>Updated at: {date}</div>;
 }
 
@@ -29,12 +32,22 @@ function Database() {
   const { isLoading, data } = useSWR("/api/v1/status", fetchAPI, {
     refreshInterval: 2000,
   });
+  let content = "carregando...";
+  if (data && !isLoading) {
+    content = (
+      <>
+        <div>Version: {data?.dependecies.database.version}</div>
+        <div>Max connections: {data?.dependecies.database.max_connections}</div>
+        <div>
+          Connections used: {data?.dependecies.database.connections_used}
+        </div>
+      </>
+    );
+  }
   return (
     <div>
       <h2>Database</h2>
-      <div>Version: {data?.dependecies.database.version}</div>
-      <div>Max connections: {data?.dependecies.database.max_connections}</div>
-      <div>Connections used: {data?.dependecies.database.connections_used}</div>
+      {content}
     </div>
   );
 }
