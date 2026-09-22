@@ -1,11 +1,31 @@
 class InternalServerError extends Error {
-  constructor({ cause }) {
+  constructor({ cause, statusCode }) {
     super("Internal Server Error", {
       cause,
     });
     this.name = "InternalServerError";
-    this.statusCode = 500;
+    this.statusCode = statusCode ?? 500;
     this.action = "Please contact support.";
+  }
+
+  toJSON() {
+    return {
+      name: this.name,
+      message: this.message,
+      status_code: this.statusCode,
+      action: this.action,
+    };
+  }
+}
+
+class ServiceError extends Error {
+  constructor({ cause, message }) {
+    super(message ?? "Service unavailable in the moment", {
+      cause,
+    });
+    this.name = "ServiceError";
+    this.statusCode = 503;
+    this.action = "Please, check if the service is available.";
   }
 
   toJSON() {
@@ -36,4 +56,4 @@ class MethodNotAllowedError extends Error {
   }
 }
 
-export { InternalServerError, MethodNotAllowedError };
+export { InternalServerError, MethodNotAllowedError, ServiceError };

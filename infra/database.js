@@ -1,4 +1,5 @@
 import { Client } from "pg";
+import { ServiceError } from "@/infra/errors.js";
 
 async function query(queryObject) {
   let client;
@@ -7,9 +8,11 @@ async function query(queryObject) {
     const res = await client.query(queryObject);
     return res;
   } catch (error) {
-    console.log("Erro dento do catch do database.js:");
-    console.error(error);
-    throw error;
+    const serviceError = new ServiceError({
+      cause: error,
+      message: "Database query failed",
+    });
+    throw serviceError;
   } finally {
     await client?.end();
   }
