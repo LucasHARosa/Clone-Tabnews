@@ -56,4 +56,29 @@ class MethodNotAllowedError extends Error {
   }
 }
 
-export { InternalServerError, MethodNotAllowedError, ServiceError };
+class ValidationError extends Error {
+  constructor({ cause, message, action }) {
+    super(message ?? "Validation error", {
+      cause,
+    });
+    this.name = "ValidationError";
+    this.statusCode = 400;
+    this.action = action ?? "Please check your input.";
+  }
+
+  toJSON() {
+    return {
+      name: this.name,
+      message: this.message,
+      status_code: this.statusCode,
+      action: this.action,
+    };
+  }
+}
+
+export {
+  InternalServerError,
+  MethodNotAllowedError,
+  ServiceError,
+  ValidationError,
+};
