@@ -107,5 +107,28 @@ describe("POST /api/v1/users", () => {
         action: "Please use a different username",
       });
     });
+
+    // test("Missing required fields", async () => {
+    //   const res = await fetch(`http://localhost:3000/api/v1/users`, {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       username: "",
+    //       email: "",
+    //       password: "",
+    //     }),
+    //   });
+
+    //   expect(res.status).toBe(400);
+    //   const responseBody = await res.json();
+    //   expect(responseBody).toEqual({
+    //     name: "ValidationError",
+    //     message: "Missing required fields",
+    //     status_code: 400,
+    //     action: "Please provide all required fields",
+    //   });
+    // });
   });
 });
