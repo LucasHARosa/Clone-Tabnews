@@ -1,0 +1,4 @@
+@baseUrl = https://clone-tabnews-gamma-liart.vercel.app/api/v1
+
+### Status
+GET {{baseUrl}}/status

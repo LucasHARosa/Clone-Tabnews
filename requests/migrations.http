@@ -1,0 +1,7 @@
+@baseUrl = https://clone-tabnews-gamma-liart.vercel.app/api/v1
+
+### Migrations pendentes (dry run)
+GET {{baseUrl}}/migrations
+
+### Rodar migrations pendentes
+POST {{baseUrl}}/migrations
